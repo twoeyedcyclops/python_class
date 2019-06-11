@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May  6 13:47:08 2019
+
+@author: kevin
+"""
+
+total_cost=float(input("What is the cost of your dream homes?"))
+annual_salary=float(input("What is your annual salary?"))
+portion_saved=float(input("What portion of your salary do you plan on saving?(decimal form)"))
+semi_annual_raise=float(input("What portion is your salary increased semi-annually?(decimal form)"))
+portion_down_payment=total_cost*.25
+current_savings=0
+monthsrequired=0
+while current_savings<portion_down_payment:
+    monthly_salary=annual_salary/12
+    r=.04
+    current_savings=current_savings*r/12+monthly_salary*portion_saved+current_savings
+    monthsrequired=monthsrequired+1
+    if monthsrequired%6==0:
+        annual_salary=annual_salary*(1+semi_annual_raise)
+print("It will take ",monthsrequired," months to be able to make a down payment on your dream home")
+    
+    
